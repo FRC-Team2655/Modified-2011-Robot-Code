@@ -11,8 +11,6 @@ public class DriveSystem {
 
     private int driveMode;
 
-    private final boolean IS_NOT_ENABLED = false;
-
     public class ControlModeEnum {
 //      Possible states the robot can be in.  
 
@@ -33,7 +31,7 @@ public class DriveSystem {
             while (true) {
 
                 try {
-                    if (driveMode == ControlModeEnum.Teleop) {
+                    if (driveMode == ControlModeEnum.Teleop && Global.EMERGENCY_STOPPED == false) {
                     // If the robot is in teleop it will accept input from the joysticks.
                     mainDrive.arcadeDrive(driveStick.getAxis(TeamJoystick.AxisType.kZ), driveStick.getAxis(TeamJoystick.AxisType.kY));
 //                        mainDrive.mecanumDrive_Cartesian(0, driveStick.getAxis(TeamJoystick.AxisType.kY), driveStick.getAxis(TeamJoystick.AxisType.kZ), 0);

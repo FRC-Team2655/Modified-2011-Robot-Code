@@ -8,7 +8,6 @@ package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -30,12 +29,10 @@ public class Arm {
 
     private final Thread thread;
 
-    private final boolean IS_NOT_ENABLED = false;
-
     private int counter;
 
     public Arm() {
-        Joystick xbox = new Joystick(2);
+        xbox = new Joystick(2);
 
         counter = 0;
 
@@ -62,7 +59,7 @@ public class Arm {
                     
                     Global.EMERGENCY_STOPPED = xbox.getRawButton(4);
 
-//                    if (Global.EMERGENCY_STOPPED == IS_NOT_ENABLED) {
+//                    if (Global.EMERGENCY_STOPPED == false) {
                     if (xbox.getRawAxis(2) < 0 && longarm.get() == true) {
                         motor1 = (xbox.getRawAxis(2) / 1.5);
                     } // xbox.getRawAxis(2) == left analog stick x axis
