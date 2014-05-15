@@ -59,7 +59,7 @@ public class Arm {
                     
                     Global.EMERGENCY_STOPPED = xbox.getRawButton(4);
 
-//                    if (Global.EMERGENCY_STOPPED == false) {
+                    if (Global.EMERGENCY_STOPPED == false) {
                     if (xbox.getRawAxis(2) < 0 && longarm.get() == true) {
                         motor1 = (xbox.getRawAxis(2) / 1.5);
                     } // xbox.getRawAxis(2) == left analog stick x axis
@@ -92,9 +92,9 @@ public class Arm {
                     } else if (xbox.getRawButton(6) == true) { //rightbumper = push tube out
                         endeffector.tankDrive(-1.0, 1.0);
                     }
-//                    }
+                    }
                     Thread.sleep(Global.controllerIdleTime);
-                }  catch (Exception ex) {
+                }  catch (InterruptedException ex) {
                 }
 
             }
