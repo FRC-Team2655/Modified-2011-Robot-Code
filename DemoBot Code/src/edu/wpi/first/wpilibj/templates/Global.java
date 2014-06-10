@@ -16,9 +16,10 @@ public class Global {
     public final static long controllerIdleTime = 100;
     
 //  Joystick Sensitivity Variables 
-    public static double zSensitivity = 0.65;
-    public static double ySensitivity = 0.4;
-    public static double xSensitivity = 0.75;
+    public static double zSensitivity;
+    public static double ySensitivity;
+    public static double xSensitivity;
     
     public static boolean EMERGENCY_STOPPED;
+    public static boolean DEMO_DRIVE;
 }

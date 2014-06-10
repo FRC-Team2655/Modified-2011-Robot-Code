@@ -29,15 +29,11 @@ public class Arm {
 
     private final Thread thread;
 
-    private int counter;
-
     public Arm() {
         xbox = new Joystick(2);
-
-        counter = 0;
-
-        endeffector = new RobotDrive(3, 4);
-        arm = new RobotDrive(5, 6);
+        
+        arm = new RobotDrive(3, 4);
+        endeffector = new RobotDrive(5, 6);
 
         shortarm = new DigitalInput(1);
         shortarm2 = new DigitalInput(2);
@@ -58,6 +54,7 @@ public class Arm {
                 try {
                     
                     Global.EMERGENCY_STOPPED = xbox.getRawButton(4);
+                    Global.DEMO_DRIVE = xbox.getRawButton(3);
 
                     if (Global.EMERGENCY_STOPPED == false) {
                     if (xbox.getRawAxis(2) < 0 && longarm.get() == true) {

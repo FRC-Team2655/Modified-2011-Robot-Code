@@ -11,6 +11,8 @@ public class RobotTemplate extends IterativeRobot {
     public RobotTemplate() {
         driveSystem = new DriveSystem();
         arm = new Arm();
+
+        Global.DEMO_DRIVE = true;
     }
 
     public void robotInit() {
@@ -35,6 +37,17 @@ public class RobotTemplate extends IterativeRobot {
 
     public void teleopPeriodic() {
         SmartDashboard.putBoolean("Stop State", Global.EMERGENCY_STOPPED);
+        SmartDashboard.putBoolean("Drive State", Global.DEMO_DRIVE);
+
+        if (Global.DEMO_DRIVE) { // Restrained motor controls for allowing non team members to drive the robot
+            Global.zSensitivity = -1;
+            Global.ySensitivity = 0.55;
+            Global.xSensitivity = 0.75;
+        } else { // Unrestrained motor controls
+            Global.zSensitivity = -1;
+            Global.ySensitivity = 1;
+            Global.xSensitivity = 1;
+        }
     }
 
 }
